@@ -76,17 +76,10 @@ export function App() {
       const drawingContext = drawingCanvas.getContext("2d")!;
       drawingContext.imageSmoothingEnabled = false;
 
-      const scaledCanvas = scaleCanvas(canvas, MAX_WIDTH, 50);
+      drawingContext.fillStyle = "white";
+      drawingContext.fillRect(0, 0, drawingCanvas.width, drawingCanvas.height);
 
-      drawingContext.globalAlpha = 0;
-      drawingContext.drawImage(
-        scaledCanvas.canvas,
-        0,
-        0,
-        drawingCanvas.width,
-        drawingCanvas.height
-      );
-      drawingContext.globalAlpha = 1;
+      const scaledCanvas = scaleCanvas(canvas, MAX_WIDTH, 50);
 
       const dataPoints = transformData(
         scaledCanvas.context.getImageData(
@@ -223,7 +216,7 @@ export function App() {
       </section>
       <section className="m-4 flex-auto relative" aria-label="canvas">
         <canvas
-          className="bg-white rounded-md mx-auto max-w-full max-h-full object-contain absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+          className="rounded-md mx-auto max-w-full max-h-full object-contain absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
           ref={canvasRef}
         >
           Canvas is not supported in your browser.
