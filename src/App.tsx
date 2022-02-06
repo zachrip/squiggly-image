@@ -1,6 +1,6 @@
 import { FormEvent, useCallback, useEffect, useRef, useState } from "react";
 
-import defaultImage from "./images/joseph.jpg";
+import defaultImage from "./images/abe.jpg";
 
 function getImageCanvas(url: string): Promise<{
   canvas: HTMLCanvasElement;
